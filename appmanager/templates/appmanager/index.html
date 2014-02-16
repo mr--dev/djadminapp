@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>DJ Admin App</title>
+    </head>
+    <body>
+        <div id="container">
+            <div id="title">
+                <h1 style="text-align: center;">Apps and services</h1>
+            </div>
+            <div id="list">
+                <table style="margin-left: 10%; margin-top: 40px; width: 80%;">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%">Name</th>
+                            <th style="width: 45%">Description</th>
+                            <th style="width: 5%">IP</th>
+                            <th style="width: 5%">Port</th>
+                            <th style="width: 5%">Private</th>
+                            <th style="width: 5%">Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for a in apps %}
+                        <tr>
+                            <td>{{a.name}}</td>
+                            <td>{{a.description}}</td>
+                            <td style="text-align: center;">{{a.ip}}</td>
+                            <td style="text-align: center;">{{a.port}}</td>
+                            <td style="text-align: center;">{% if a.private %}X{% else %}{% endif %}</td>
+                            <td style="text-align: center;"><a href="http://{{a.ip}}:{{a.port}}" target="_blank">Go</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
